@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Bakufu',
   tagline: 'Спрортивное лазание и наука',
-  favicon: 'favicon.ico',
+  favicon: '/img/favicon.ico',
 
 	markdown: {
 		mermaid: true,
@@ -72,6 +72,11 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+			mermaid: {
+				theme: {
+					light: 'neutral', dark: 'dark'
+				},
+			},
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
