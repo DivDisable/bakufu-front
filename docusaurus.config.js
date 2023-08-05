@@ -9,11 +9,9 @@ const config = {
   title: 'Bakufu',
   tagline: 'Спрортивное лазание и наука',
   favicon: '/img/favicon.ico',
-
 	markdown: {
 		mermaid: true,
 	},
-
 	themes: ['@docusaurus/theme-mermaid'],
 
   // Set the production url of your site here

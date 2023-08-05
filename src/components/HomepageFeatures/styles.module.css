@@ -3,9 +3,26 @@
   align-items: center;
   padding: 2rem 0;
   width: 100%;
+	overflow-x: hidden;
 }
 
 .featureSvg {
   height: 200px;
   width: 200px;
+}
+
+.featuresHide {
+	transition: 1.8s;
+}
+
+.featuresHide:nth-of-type(odd) {
+	transform: translateX(-1000px);
+}
+
+.featuresHide:nth-of-type(even) {
+	transform: translateX(1000px);
+}
+
+.featuresAppear:nth-of-type(n) {
+	transform: initial;
 }

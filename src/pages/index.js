@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -7,46 +7,47 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 import styles from './index.module.css';
 
-const bakufuStyle = {
-	logo: {
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-		margin: '0 auto',
-		marginBottom: '50px',
-		marginTop: '10px',
-		backgroundColor: '#6A87ED',
-		width: '200px',
-		height: '200px',
-		borderRadius: '8px',
-		transform: 'rotate(45deg)'
-	},
-	logoTxt: {
-		transform: 'rotate(-45deg) '
-	}
-};
-
 const Logo = () => {
+  const [invisible, setInvisible] = useState(true);
+
+  useEffect(() => {
+    setInvisible(false);
+  }, []);
+
+  const cond = invisible
+    ? styles.bakufuLogoLg
+    : styles.bakufuLogoLg + " " +  styles.bakufuLogoLgVis;
+
 	return (
-		<div style={bakufuStyle.logo}>
-    	<h1 style={bakufuStyle.logoTxt} className="hero__title">Bakufu</h1>
+		<div className={cond}>
+    	<h1 className={styles.bakufuLogo__text}>Bakufu</h1>
 		</div>
 	);
 };
 
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+  // const {siteConfig} = useDocusaurusContext();
+  const [invisible, setInvisible] = useState(true);
+
+  useEffect(() => {
+    setInvisible(false);
+  }, []);
+
+  const cond = invisible
+    ? styles.invisable
+    : styles.invisable + " " + styles.visable;
+
   return (
-    <header className={clsx('hero hero--dark', styles.heroBanner)}>
-      <div className="container">
+    <header className={clsx('hero', styles.heroBanner)}>
+      <div className={clsx("container", cond)}>
 				<Logo />
         <p className="hero__subtitle">Наука и стиль</p>
         <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/bakufu">
-            База знаний Bakufu &#129504;
-          </Link>
+            <Link
+              className="button button--primary button--lg"
+              to="/docs/bakufu">
+              База знаний Bakufu &#129504;
+            </Link>
         </div>
       </div>
     </header>

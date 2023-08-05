@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 
@@ -36,8 +36,17 @@ const FeatureList = [
 ];
 
 function Feature({Svg, title, description}) {
+  const [isHide, setIsHide] = useState(true)
+  const cond = isHide
+    ? styles.featuresHide
+    : styles.featuresHide + " " + styles.featuresAppear;
+
+  useEffect(() => {
+    setIsHide(false);
+  }, []);
+
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx('col col--4', cond)}>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
@@ -53,7 +62,7 @@ export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row">
+        <div className="row" style={{position: "relative"}}>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}

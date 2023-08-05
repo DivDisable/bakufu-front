@@ -3,6 +3,40 @@
  * and scoped locally.
  */
 
+.invisable {
+	opacity: 0;
+	transition: 1.8s ease-in-out;
+}
+
+.visable {
+	opacity: 1;	
+}
+
+.bakufuLogoLg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  margin-top: 10px;
+  background-color: #6A87ED;
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+	transform: rotate(0deg) scale(0);
+  transition: 1.8s;
+}
+
+.bakufuLogoLgVis {
+	transform: rotate(405deg) scale(1);
+}
+
+.bakufuLogo__text {
+	margin-bottom: 0;
+  color: white;
+  transform: rotate(-45deg);
+}
+
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
@@ -12,7 +46,7 @@
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 2em;
   }
 }
 
@@ -21,3 +55,4 @@
   align-items: center;
   justify-content: center;
 }
+
